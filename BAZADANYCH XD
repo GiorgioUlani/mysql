@@ -65,3 +65,66 @@ add foreign key (id_departament) references departament(id_de);
 
 Alter table departament
 add foreign key (Cityid) references City(id_ci);
+create table Produkty
+(id_pr int auto_increment primary key not null,
+Nazwa_produktu varchar(30),
+Cena_produktu int,
+CategoriaID int);
+
+
+
+
+insert into Produkty
+values(null, 'Laptop', 2000, 1),
+(null, 'Mouse', 50, 2),
+(null, 'Keyboard', 300, 2),
+(null, 'Flash drive', 100, 3),
+(null, 'Hard drive', 400, 3);
+
+
+
+create table ProduktyKategoria
+(id_prk int auto_increment primary key not null,
+Nazwa_Kategorii varchar(30));
+
+
+
+insert into ProduktyKategoria
+values(null, 'Computer'),
+(null, 'Accessory'),
+(null, 'Drive'),
+(null, 'Printer');
+
+
+
+
+create table Orders
+(id_ord int auto_increment primary key not null,
+OrderNumber varchar(50),
+OrderDate date,
+OrderTotal int,
+EmployeeId int);
+
+
+insert into Orders
+values(null, 'Z\13\2014', '2014-01-14', 55, 3),
+(null, 'Z\25\2015', '2015-02-21', 668, 5),
+(null, 'Z\30\2015', '2014-06-29', 2890, 1),
+(null, 'Z\45\2015', '2014-07-24', 800, 3),
+(null, 'Z\50\2015', '2014-08-02', 2700, 4);
+
+create table OrderDetails
+(id_odd int auto_increment primary key not null,
+OrderId int,
+ProductId int,
+Quantity int,
+UniCost int);
+
+insert into OrderDetails
+values(2, 1, 2, 1, 55),
+(3, 2, 2, 1, 55),
+(4, 2, 4, 2, 99),
+(5, 2, 5, 1, 415),
+(6, 3, 1, 2, 1900),
+(7, 3, 2, 2, 45),
+(8, 5, 2, 20, 40);
